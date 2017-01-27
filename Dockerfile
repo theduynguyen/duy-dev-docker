@@ -16,11 +16,15 @@ RUN mkdir -p $CONDA_DIR && \
     /bin/bash /${conda_version}-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
     rm ${conda_version}-Linux-x86_64.sh
 
+# Python env
+RUN pip install ipdb pytest xmltodict pytest-cov python-coveralls coverage pytest-xdist pep8 pytest-pep8 pydot_ng jedi && \
+    conda install Pillow scikit-image scikit-learn notebook pandas seaborn matplotlib nose pyyaml six h5py && \
+    pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${tensorflow_version}-linux_x86_64.whl && \
+    pip install keras && \
+    conda clean -yt
+
 # Vim
-RUN apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
-    libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
-    libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-    python3-dev ruby-dev lua5.1 lua5.1-dev libperl-dev git && \
+RUN apt-get install -y libncurses5-dev ruby-dev lua5.1 lua5.1-dev libperl-dev python-dev && \
     apt-get remove vim vim-runtime gvim
 
 RUN cd ~ && \
@@ -34,10 +38,9 @@ RUN cd ~ && \
                 --enable-python3interp=no \
                 --enable-perlinterp=yes \
                 --enable-luainterp=yes \
-                --enable-gui=gtk2 --enable-cscope --prefix=/usr && \
+                --enable-cscope --prefix=/usr && \
     make VIMRUNTIMEDIR=/usr/share/vim/vim80 && \
     make install
-COPY vimrc /home/deeplearner/.vimrc
 
 # create directories /src, /data, /work for user and grant access to vimrc
 ENV NB_USER deeplearner
@@ -45,7 +48,6 @@ ENV NB_UID 1000
 
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     chown -R deeplearner /home/deeplearner && \
-    chown deeplearner /home/deeplearner/.vimrc && \
     mkdir -p $CONDA_DIR && \
     mkdir -p /src && \
     mkdir -p /data && \
@@ -55,7 +57,6 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     chown deeplearner /data && \
     chown deeplearner /work
 
-#########################################################################
 USER deeplearner
 
 # get trained model to avoid downloading them every time
@@ -66,22 +67,20 @@ RUN mkdir -p /home/deeplearner/.keras/models && \
     wget --quiet https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels.h5 && \
     wget --quiet https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
 
-# Python env
-RUN pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${tensorflow_version}-linux_x86_64.whl && \
-    pip install ipdb pytest xmltodict pytest-cov python-coveralls coverage pytest-xdist pep8 pytest-pep8 pydot_ng jedi && \
-    conda install Pillow scikit-image scikit-learn notebook pandas matplotlib nose pyyaml six h5py && \
-    pip install keras && \
-    conda clean -yt
 
-ENV PYTHONPATH='/src/:$PYTHONPATH'
-ENV PYTHONDONTWRITEBYTECODE=True
+## Vim plugins
+USER root
+COPY vimrc /home/deeplearner/.vimrc
+RUN chown deeplearner /home/deeplearner/.vimrc 
+USER deeplearner
 
-# Vim plugins
 RUN chmod u+rw /home/deeplearner/.vimrc && \
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
     vim +PluginInstall +qall
 
 # set current dir
+ENV PYTHONPATH='/src/:$PYTHONPATH'
+ENV PYTHONDONTWRITEBYTECODE=True
 WORKDIR /src
 
 #Ports
