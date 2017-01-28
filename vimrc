@@ -47,6 +47,8 @@ set cursorline
 syntax on							" enable syntax highlighting
 set completeopt=menu				" do not annoy me
 set backspace=indent,eol,start
+set wildmode=longest,list,full
+set wildmenu
 
 " .py file specific
 au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
