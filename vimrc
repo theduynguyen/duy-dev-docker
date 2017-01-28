@@ -26,6 +26,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'okcompute/vim-python-motions'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
