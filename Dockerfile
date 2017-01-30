@@ -70,6 +70,8 @@ RUN mkdir -p /home/deeplearner/.keras/models && \
 
 ## Vim plugins
 USER root
+RUN apt-get install -y tmux
+
 COPY vimrc /home/deeplearner/.vimrc
 RUN chown deeplearner /home/deeplearner/.vimrc 
 USER deeplearner

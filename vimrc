@@ -27,6 +27,8 @@ Plugin 'okcompute/vim-python-motions'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-surround'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,10 +80,9 @@ let NERDTreeAutoDeleteBuffer = 1
 
 
 " change colorscheme
-if exists('g:solarized_termcolors')
-	let g:solarized_termcolors=256
-	set background=dark
-	colorscheme solarized
+if exists('g:molokai_original')
+	let g:molokai_original=1
+	colorscheme molokai
 endif
 
 
