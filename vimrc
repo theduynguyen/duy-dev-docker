@@ -28,7 +28,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
-
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,6 +52,8 @@ set completeopt=menu				" do not annoy me
 set backspace=indent,eol,start
 set wildmode=longest,list,full
 set wildmenu
+set autoindent
+set smartindent
 
 " .py file specific
 au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
@@ -80,9 +82,7 @@ let NERDTreeAutoDeleteBuffer = 1
 
 
 " change colorscheme
-if exists('g:molokai_original')
-	let g:molokai_original=1
-	colorscheme molokai
+if filereadable( expand("$HOME/.vim/bundle/molokai/colors/molokai.vim") )
+    colorscheme molokai
 endif
-
 
