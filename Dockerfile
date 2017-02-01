@@ -17,8 +17,8 @@ RUN mkdir -p $CONDA_DIR && \
     rm ${conda_version}-Linux-x86_64.sh
 
 # Python env
-RUN pip install ipdb pytest xmltodict pytest-cov python-coveralls coverage pytest-xdist pep8 pytest-pep8 pydot_ng jedi && \
-    conda install Pillow scikit-image scikit-learn notebook pandas seaborn matplotlib nose pyyaml six h5py && \
+RUN pip install ipdb pytest xmltodict pytest-cov python-coveralls coverage pytest-xdist pep8 pytest-pep8 pydot_ng jedi nose rednose && \
+    conda install Pillow scikit-image scikit-learn notebook pandas seaborn matplotlib pyyaml six h5py && \
     pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${tensorflow_version}-linux_x86_64.whl && \
     pip install keras && \
     conda clean -yt
@@ -38,6 +38,7 @@ RUN cd ~ && \
                 --enable-python3interp=no \
                 --enable-perlinterp=yes \
                 --enable-luainterp=yes \
+		--enable-clipboard=yes \
                 --enable-cscope --prefix=/usr && \
     make VIMRUNTIMEDIR=/usr/share/vim/vim80 && \
     make install
