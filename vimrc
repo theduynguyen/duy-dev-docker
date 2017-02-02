@@ -29,6 +29,9 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'jiangmiao/auto-pairs'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
