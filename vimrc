@@ -31,6 +31,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 
 " All of your Plugins must be added before the following line
@@ -61,6 +62,8 @@ set smartindent
 " .py file specific
 au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+autocmd FileType py autocmd BufWritePre <buffer> %s/\s\+$//e
+
 
 " key mappings
 let mapleader=","								"Leader key
