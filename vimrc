@@ -77,8 +77,8 @@ nnoremap <esc><esc> :noh<return> 				"unhighlight search
 nnoremap <space> za								"Enable folding with the spacebar
 nnoremap <Leader>f :NERDTreeToggle<Enter>		"show Nerdtree
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>	"find in Nerdtree
-nmap <M-CR> O<Esc>
-nmap <CR> o<Esc>
+nmap OO O<Esc>
+nmap oo o<Esc>
 
 " Powerline - Always show statusline
 set laststatus=2
