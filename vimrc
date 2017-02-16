@@ -46,6 +46,7 @@ set clipboard=unnamed				" use same clipboard as other programs
 set hlsearch						" highlight search
 set incsearch						" new search after every typed char 
 set t_Co=256						" 256 colour setting
+set term=screen-256color
 set foldmethod=indent       		" Enable folding
 set foldlevel=99
 set textwidth=120
