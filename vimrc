@@ -32,6 +32,7 @@ Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'wincent/terminus'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 
 " All of your Plugins must be added before the following line
