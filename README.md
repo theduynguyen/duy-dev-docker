@@ -7,6 +7,7 @@ My development environment including:
 - Tensorflow
 - Keras
 - Vim including plugins used
+- screen and tmux config files
 
 # Requirements
 
