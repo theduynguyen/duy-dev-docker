@@ -2,3 +2,5 @@
 LICENSE
 .git/*
 .Dockerfile.swp
+tmux.conf
+screenrc

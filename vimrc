@@ -31,7 +31,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'wincent/terminus'
+"Plugin 'wincent/terminus'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 
@@ -81,7 +81,7 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>		"show Nerdtree
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>	"find in Nerdtree
 nmap OO O<Esc>
 nmap oo o<Esc>
-
+imap jk <Esc> 
 " Powerline - Always show statusline
 set laststatus=2
 
