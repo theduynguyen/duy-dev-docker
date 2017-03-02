@@ -71,10 +71,11 @@ RUN mkdir -p /home/deeplearner/.keras/models && \
 
 ## Vim plugins
 USER root
-RUN apt-get install -y tmux
+RUN apt-get install -y tmux 
 
 COPY vimrc /home/deeplearner/.vimrc
 RUN chown deeplearner /home/deeplearner/.vimrc 
+
 USER deeplearner
 
 RUN chmod u+rw /home/deeplearner/.vimrc && \
@@ -84,6 +85,7 @@ RUN chmod u+rw /home/deeplearner/.vimrc && \
 # set current dir
 ENV PYTHONPATH='/src/:$PYTHONPATH'
 ENV PYTHONDONTWRITEBYTECODE=True
+ENV TERM=xterm-256color
 WORKDIR /src
 
 #Ports
