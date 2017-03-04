@@ -41,20 +41,35 @@ filetype plugin indent on    " required
 
 
 " editor settings
-set encoding=utf-8					" UTF8 encoding
-set nu								" line numbers
-set clipboard=unnamed				" use same clipboard as other programs
-set hlsearch						" highlight search
-set incsearch						" new search after every typed char 
-set t_Co=256						" 256 colour setting
+
+set encoding=utf-8
+" line numbers
+set nu
+
+" use same clipboard as other programs
+set clipboard=unnamed
+
+" highlight search
+set hlsearch
+
+" new search after every typed char 
+set incsearch
+
+" 256 colour setting
+set t_Co=256
 set term=screen-256color
-set foldmethod=indent       		" Enable folding
+
+" Enable folding
+set foldmethod=indent
 set foldlevel=99
 set textwidth=120
 let python_highlight_all=1
 set cursorline
-syntax on							" enable syntax highlighting
-set completeopt=menu				" do not annoy me
+
+syntax on
+
+" do not annoy me
+set completeopt=menu
 set backspace=indent,eol,start
 set wildmode=longest,list,full
 set wildmenu
@@ -68,20 +83,32 @@ autocmd FileType py autocmd BufWritePre <buffer> %s/\s\+$//e
 
 
 " key mappings
-let mapleader=","								"Leader key
-nnoremap <C-J> <C-W><C-J>						"split navigations
+"Leader key
+let mapleader=","
+
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap j gj									" move vertically by visual line
+" move vertically by visual line
+nnoremap j gj
 nnoremap k gk
-nnoremap <esc><esc> :noh<return> 				"unhighlight search
-nnoremap <space> za								"Enable folding with the spacebar
-nnoremap <Leader>f :NERDTreeToggle<Enter>		"show Nerdtree
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>	"find in Nerdtree
+
+"unhighlight search
+nnoremap <esc><esc> :noh<return>
+
+"Enable folding with the spacebar
+nnoremap <space> za
+
+"show Nerdtree
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+
+"find in Nerdtree
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+
 nmap OO O<Esc>
 nmap oo o<Esc>
 imap jk <Esc> 
+"
 " Powerline - Always show statusline
 set laststatus=2
 
