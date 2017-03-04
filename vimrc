@@ -107,7 +107,7 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
 nmap OO O<Esc>
 nmap oo o<Esc>
-imap jk <Esc> 
+inoremap jk  <Esc> 
 "
 " Powerline - Always show statusline
 set laststatus=2
