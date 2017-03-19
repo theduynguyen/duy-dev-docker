@@ -63,11 +63,16 @@ set term=screen-256color
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-set textwidth=120
-let python_highlight_all=1
-set cursorline
+
+" line wrap
+set textwidth=100
+set wrap
+set linebreak
+set formatoptions-=t
 
 syntax on
+let python_highlight_all=1
+set cursorline
 
 " do not annoy me
 set completeopt=menu
