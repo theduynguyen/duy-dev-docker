@@ -33,7 +33,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'wincent/terminus'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-
+Plugin 'jreybert/vimagit'
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
